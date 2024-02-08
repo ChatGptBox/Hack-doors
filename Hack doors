@@ -1,0 +1,35 @@
+game.Players.LocalPlayer.Character.Humanoid.Health = math.huge
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+
+Humanoid.WalkSpeed = 50
+
+for i, v in ipairs(game.Players:GetPlayers()) do
+    if v ~= Player then
+        local Character = v.Character
+        if Character then
+            local Humanoid = Character:FindFirstChild("Humanoid")
+            if Humanoid then
+                Humanoid.Health = 0
+            end
+        end
+    end
+end
+
+while true do
+    wait(5)
+    for i, v in ipairs(game.Players:GetPlayers()) do
+        if v ~= Player then
+            local Character = v.Character
+            if Character then
+                local Humanoid = Character:FindFirstChild("Humanoid")
+                if Humanoid then
+                    Humanoid.Health = 0
+                end
+            end
+        end
+    end
+    Humanoid.WalkSpeed = 50
+end
